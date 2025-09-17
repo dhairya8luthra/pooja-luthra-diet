@@ -314,7 +314,7 @@ function App() {
               <div className="relative">
                 <div className="w-80 h-80 lg:w-96 lg:h-96 bg-gradient-to-br from-pink-200 to-blue-200 rounded-full flex items-center justify-center shadow-2xl animate-float hover:scale-110 transition-transform duration-500 p-4">
                   <img 
-                    src="https://postimg.cc/dkYtCj67" 
+                    src="https://i.postimg.cc/k4VVkjty/pooja.jpg" 
                     alt="Pooja Luthra - Certified Dietician & Nutritionist" 
                     className="w-full h-full object-cover rounded-full animate-pulse-slow"
                   />
