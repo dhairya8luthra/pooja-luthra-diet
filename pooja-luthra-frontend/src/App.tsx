@@ -23,7 +23,6 @@ type PageState = 'home' | 'success' | 'failure';
 
 interface Plan {
   name: string;
-  price: number;
   features: string[];
   additionalFeatures?: string[];
 }
@@ -36,7 +35,6 @@ interface Testimonial {
 const plans: Plan[] = [
   {
     name: "Weight Loss Plan",
-    price: 1000,
     features: [
       "1 Month Diet Plan",
       "Exercise Plan for One Month", 
@@ -47,7 +45,6 @@ const plans: Plan[] = [
   },
   {
     name: "Lifestyle Disease Reversal Plan",
-    price: 1500,
     features: [
       "1 Month Diet Plan",
       "Exercise Plan for One Month",
@@ -68,7 +65,6 @@ const plans: Plan[] = [
   },
   {
     name: "Menopause Management Plan", 
-    price: 1500,
     features: [
       "1 Month Diet Plan",
       "Exercise Plan for One Month",
@@ -112,7 +108,6 @@ function App() {
   const [currentPage, setCurrentPage] = useState<PageState>('home');
   const [paymentResponse, setPaymentResponse] = useState<RazorpayResponse | null>(null);
   const [paymentError, setPaymentError] = useState<string>('');
-  const [selectedPlan, setSelectedPlan] = useState('');
   const [isVisible, setIsVisible] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [formData, setFormData] = useState({
@@ -139,10 +134,8 @@ function App() {
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
-  const handleBookConsultation = (planName: string) => {
-    setSelectedPlan(planName);
-    setFormData({ ...formData, plan: planName });
-    setIsModalOpen(true);
+  const handleBookConsultation = () => {
+    window.open("https://forms.gle/h67TE6bP7xceaRS39", "_blank");
   };
 
   const handleFormSubmit = (e: React.FormEvent) => {
@@ -161,7 +154,7 @@ function App() {
       whatsapp: formData.whatsapp,
       issue: formData.issue,
       plan: formData.plan,
-      amount: selectedPlanData.price,
+      amount: 0, // Removed price reference
     };
 
     // Initiate Razorpay payment
@@ -467,10 +460,7 @@ function App() {
                 
                 <h3 className="text-2xl font-bold text-gray-800 mb-4 text-center group-hover:text-pink-600 transition-colors duration-300">{plan.name}</h3>
                 
-                <div className="text-center mb-6 animate-bounce-in animation-delay-300">
-                  <span className="text-4xl font-bold text-pink-600 animate-number-glow">₹{plan.price}</span>
-                  <span className="text-gray-600 ml-2">/month</span>
-                </div>
+                {/* Price display removed */}
                 
                 <div className="space-y-3 mb-8">
                   {plan.features.map((feature, fIndex) => (
@@ -495,7 +485,7 @@ function App() {
                 </div>
                 
                 <button 
-                  onClick={() => handleBookConsultation(plan.name)}
+                  onClick={handleBookConsultation}
                   className={`w-full py-4 rounded-2xl font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg animate-fade-in-up ${
                     index === 1 
                       ? 'bg-gradient-to-r from-pink-500 to-orange-500 text-white hover:from-pink-600 hover:to-orange-600 shadow-lg animate-gradient-x' 
@@ -529,7 +519,7 @@ function App() {
               
               <div className="mb-6 p-4 bg-gradient-to-r from-pink-50 to-orange-50 rounded-xl animate-fade-in-up animation-delay-200">
                 <p className="text-sm text-gray-600">Selected Plan:</p>
-                <p className="font-semibold text-gray-800">{selectedPlan}</p>
+                <p className="font-semibold text-gray-800">{formData.plan}</p>
               </div>
               
               <form onSubmit={handleFormSubmit} className="space-y-4">
