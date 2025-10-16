@@ -270,6 +270,18 @@ function App() {
         </div>
         
         <div className="container mx-auto px-6 py-20 relative z-10">
+          {/* Nutriwise Heading */}
+          <div className="text-center mb-10">
+            <h1 className="font-extrabold text-5xl lg:text-7xl mb-2 bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-orange-500 animate-text-reveal">
+              Nutriwise
+            </h1>
+            <div className="flex items-center justify-center">
+              <div className="h-0.5 w-12 bg-gradient-to-r from-pink-700 to-orange-300"></div>
+              <p className="mx-4 text-xl text-gray-700 font-medium">by Pooja Luthra</p>
+              <div className="h-0.5 w-12 bg-gradient-to-l from-pink-700 to-orange-300"></div>
+            </div>
+          </div>
+          
           <div className="flex flex-col lg:flex-row items-center gap-12">
             <div className={`lg:w-1/2 transition-all duration-1000 ${isVisible ? 'animate-slide-in-left' : 'opacity-0 translate-x-[-100px]'}`}>
               <div className="mb-6">
