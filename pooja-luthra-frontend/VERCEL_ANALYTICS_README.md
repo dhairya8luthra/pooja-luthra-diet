@@ -36,6 +36,7 @@ Deploy your changes to Vercel or your preferred hosting platform that supports V
 ## 4. Verify Analytics
 
 After deploying:
+
 - Visit your website at www.nutriwisebypoojaluthra.com
 - Check the Analytics dashboard on Vercel
 - Data should start appearing within 30 seconds
