@@ -18,7 +18,7 @@ import {
   Award,
   TrendingUp
 } from 'lucide-react';
-
+import { Analytics } from '@vercel/analytics/react';
 type PageState = 'home' | 'success' | 'failure';
 
 interface Plan {
@@ -615,6 +615,7 @@ function App() {
           <p className="text-gray-400 animate-fade-in-up animation-delay-600">© 2025 Pooja Luthra. All rights reserved.</p>
         </div>
       </footer>
+       <Analytics />
     </div>
   );
 }
